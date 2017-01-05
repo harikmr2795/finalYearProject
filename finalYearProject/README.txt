@@ -1,1 +1,1 @@
-test Scrapper.py --> for testing new rss scraps
+testScrapper.py --> for testing new rss scraps
