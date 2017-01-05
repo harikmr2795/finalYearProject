@@ -7,5 +7,6 @@ print('Number of topics avoilable in Engadget is ',len(document),'\n')
 
 while (count<len(document)):
     element = document['items'][count]
-    print(element['title'])
+    print(count+1,'. ',element['title'])
     count = count + 1
+
