@@ -10,25 +10,34 @@ def connected_to_internet(url='http://www.google.com/', timeout=5):
         print("No internet connection available.")
     return False
 
+def more_title_available(count):
+    try:
+        x = document[i]['items'][count]
+        return True
+    except Exception:
+        return False
+    return False
+
 if(connected_to_internet()==True):
     #List of all RSS feeds
     sourceLinks = ['https://www.engadget.com/rss.xml','https://techcrunch.com/feed/','http://www.windowscentral.com/rss']
-
     titles = []
     document = []
     i=0
-    
+    available = 0    
     
     for link in sourceLinks:
         print('\nFecthing RSS from ',link,'...')
         document.append(feedparser.parse(link))
-        titleCount=0
         count=0
-        print(len(document[i]),' Headlines Fetched')
-        while (count<len(document[i])):
-           element=document[i]['items'][count]
-           titles.append(element['title'])
-           count=count+1
+        available = 0
+        while(more_title_available(available)==True):
+            available = available + 1
+            
+        while(count<available):
+            element = document[i]['items'][count]
+            titles.append(element['title'])
+            count=count+1
         i=i+1
 
     i=1
