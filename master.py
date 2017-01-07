@@ -1,7 +1,6 @@
 import feedparser
 import requests
-
-#To check internet connection
+#To check connection
 def connected_to_internet(url='http://www.google.com/', timeout=5):
     try:
         _ = requests.get(url, timeout=timeout)
@@ -9,7 +8,6 @@ def connected_to_internet(url='http://www.google.com/', timeout=5):
     except requests.ConnectionError:
         print("No internet connection available.")
     return False
-
 def more_title_available(count):
     try:
         x = document[i]['items'][count]
@@ -17,7 +15,6 @@ def more_title_available(count):
     except Exception:
         return False
     return False
-
 if(connected_to_internet()==True):
     #List of all RSS feeds
     sourceLinks = ['https://www.engadget.com/rss.xml','https://techcrunch.com/feed/','http://www.windowscentral.com/rss']
@@ -39,7 +36,6 @@ if(connected_to_internet()==True):
             titles.append(element['title'])
             count=count+1
         i=i+1
-
     i=1
     print('\n\n')
     for title in titles:
