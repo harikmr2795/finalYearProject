@@ -1,7 +1,6 @@
 import feedparser
 import requests
 from bs4 import BeautifulSoup
-
 #To check internet connection
 def connected_to_internet(url):
     try:
@@ -11,7 +10,6 @@ def connected_to_internet(url):
         if(url=='http://www.google.com/'):
             print('No Internet Connection')
     return False
-
 def more_title_available(count):
     try:
         x = document[i]['items'][count]
@@ -19,8 +17,6 @@ def more_title_available(count):
     except Exception:
         return False
     return False
-
-
 if(connected_to_internet('http://www.google.com/')==True):
     #RSS Scrapping
     sourceLinksRSS = ['https://www.engadget.com/rss.xml','https://techcrunch.com/feed/','http://www.windowscentral.com/rss','http://www.phonearena.com/feed']
@@ -42,7 +38,6 @@ if(connected_to_internet('http://www.google.com/')==True):
                 titles.append(element['title'])
                 count=count+1
         i=i+1
-
     #BeautifulSoup Scrapping for FoneArena, BGR
     i=0
     sourceLinksHTML = []
