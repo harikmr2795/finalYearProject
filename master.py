@@ -23,13 +23,13 @@ def more_title_available(count):
 
 if(connected_to_internet('http://www.google.com/')==True):
     #RSS Scrapping
-    sourceLinks = ['https://www.engadget.com/rss.xml','https://techcrunch.com/feed/','http://www.windowscentral.com/rss','http://www.phonearena.com/feed']
+    sourceLinksRSS = ['https://www.engadget.com/rss.xml','https://techcrunch.com/feed/','http://www.windowscentral.com/rss','http://www.phonearena.com/feed']
     titles = []
     document = []
     i=0
     available = 0    
     
-    for link in sourceLinks:
+    for link in sourceLinksRSS:
         if(connected_to_internet(link)):
             print('\nFecthing RSS from ',link,'...')
             document.append(feedparser.parse(link))
@@ -43,19 +43,21 @@ if(connected_to_internet('http://www.google.com/')==True):
                 count=count+1
         i=i+1
 
-    #BeautifulSoup Scrapping for FoneArena
+    #BeautifulSoup Scrapping for FoneArena, BGR
     i=0
-    link = 'http://www.fonearena.com/'
-    if(connected_to_internet(link)):
-        print('\nFetching News from ',link)
-        r  = requests.get(link)
-        html_doc = r.text
-        soup = BeautifulSoup(html_doc,'html.parser')
-        headings = soup.find_all('h3')
-        for heading in headings:
-            if(i<len(headings)):
-                titles.append(headings[i].get_text())
-                i=i+1
+    sourceLinksHTML = []
+    sourceLinksHTML = ['http://www.fonearena.com/','http://bgr.com/']
+    for link in sourceLinksHTML:
+        if(connected_to_internet(link)):
+            print('\nFetching News from ',link)
+            r  = requests.get(link)
+            html_doc = r.text
+            soup = BeautifulSoup(html_doc,'html.parser')
+            headings = soup.find_all('h3')
+            for heading in headings:
+                if(i<len(headings)):
+                    titles.append(headings[i].get_text())
+                    i=i+1
         
    
     i=1
