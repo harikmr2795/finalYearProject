@@ -2,7 +2,7 @@ import feedparser
 import requests
 from bs4 import BeautifulSoup
 
-sourceLinksRSS = ['https://www.engadget.com/rss.xml','https://techcrunch.com/feed/','http://www.phonearena.com/feed','http://www.windowscentral.com/rss']
+sourceLinksRSS = ['https://www.engadget.com/rss.xml','https://techcrunch.com/feed/','http://www.phonearena.com/feed','http://www.windowscentral.com/rss','http://feeds.gawker.com/kotaku/full','http://digg.com/channel/technology.rss','http://www.dailytech.com/rss.aspx','http://www.lifehacker.co.in/rss_tag_section_feeds.cms?query=downloads','http://www.lifehacker.co.in/rss_tag_section_feeds.cms?query=android','http://www.theinquirer.net/feeds/rss']
 sourceLinksHTML = ['http://www.fonearena.com/','http://bgr.com/','http://www.gsmarena.com/']
 titles = []
 
