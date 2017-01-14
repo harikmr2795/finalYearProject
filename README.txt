@@ -7,6 +7,3 @@ sourceLinksHTML_H3 = ['http://www.fonearena.com/','http://www.gsmarena.com/','ht
 sourceLinksHTML_H2 = ['http://www.in.techspot.com/news']
 
 sourceLinksHTML_H1 = ['http://valleywag.gawker.com/page_2','http://valleywag.gawker.com/page_1','http://valleywag.gawker.com/']
-
-
-testScrapper.py --> for testing new rss feeds
