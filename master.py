@@ -14,6 +14,7 @@ titles = []
 
 for i, x in enumerate(ws['A']):
                 titles.append(ws['A'+str(i+1)].value)
+oldCount = len(titles)
 
 try:
         # RSS Scrapping
@@ -63,10 +64,10 @@ except requests.ConnectionError:
 
 # To display & store the parsed titles
 finally:
+        newCount = len(titles)
         print('\n')
-        i=1
-        for index, title in enumerate(titles):
-            ws['A'+str(i)].value = title
-            i+=1
-            print(index+1, '. ', title)
+        for x in range(oldCount,newCount):
+            ws['A'+str(x+1)].value = titles[x]
+            x+=1
+            print(x+1, '. ', titles[x-1])
         wb.save('db.xlsx')
