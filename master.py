@@ -11,6 +11,7 @@ sourceLinksHTML_H3 = []
 sourceLinksHTML_H2 = []
 sourceLinksHTML_H1 = []
 titles = []
+newTitles = []
 
 for i, x in enumerate(ws['A']):
                 titles.append(ws['A'+str(i+1)].value)
@@ -68,6 +69,7 @@ finally:
         print('\n')
         for x in range(oldCount,newCount):
             ws['A'+str(x+1)].value = titles[x]
+            newTitles.append(titles[x])
             x+=1
-            print(x+1, '. ', titles[x-1])
+            print(x, '. ', titles[x-1])
         wb.save('db.xlsx')
